@@ -1,91 +1,86 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from 'next/image';
+import CallToAction from '../../components/CallToAction';
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Page() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <div className="w-full h-[calc(150vh-6rem)] md:h-[calc(100vh-6rem)] flex flex-col md:flex-row">
+      <FirstBloc></FirstBloc>
+      <SecondBloc></SecondBloc>
+    </div>
   )
+}
+
+function FirstBloc() {
+
+  const views = fetchViews();
+
+  return (
+    <div
+      className='w-full h-fit md:w-1/2 md:h-full py-6 px-6 flex items-center justify-center'>
+      <div className='flex flex-col gap-6'>
+        <div className='flex flex-col gap-0'>
+          <h1 className='text-6xl md:text-7xl lg:text-8xl font-serif'>Evan <br />OSMONT</h1>
+          <p className='italic font-light text-end w-2/3 ml-auto'>Freelance Developpement & Communication</p>
+        </div>
+        <div className='h-px w-full bg-dark'></div>
+        <div className='flex flex-col gap-1'>
+          <h2 className='font-bold font-sm'>Biography :</h2>
+          <p className='font-light'>👋 Hey, <br />
+            I’m a 20 years old Fullstack Developper currently working at Forinov. I also love to learn new skill on my free time !
+          </p>
+          <div className='w-fit ml-auto'>
+            <CallToAction
+              text="Contact me"
+              link="/contact"
+              hasIcon
+            ></CallToAction>
+          </div>
+        </div>
+        <div className='h-px w-full bg-dark'></div>
+        <div className='w-full flex flex-row justify-between relative'>
+          <div className='flex flex-col gap-1 relative top-8 md:top-0'>
+            <h1 className='text-5xl font-serif'>30+</h1>
+            <p className='font-light w-full text-center'>Projects</p>
+          </div>
+          <div className='flex flex-col gap-1'>
+            <h1 className='text-5xl font-serif'>10+</h1>
+            <p className='font-light w-full text-center'>Tools</p>
+          </div>
+          <div className='flex flex-col gap-1 relative top-8 md:top-0'>
+            <h1 className='text-5xl font-serif'>200+</h1>
+            <p className='font-light w-full text-center'>Github views</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SecondBloc() {
+  return <div className='w-full h-1/2 md:w-1/2 md:h-full px-3 flex items-center justify-start'>
+    <div className='w-full h-full rounded-t-full relative overflow-hidden'>
+      <Image
+        src='/evan.jpg'
+        alt='Picture of myself'
+        fill
+        priority
+        className='object-cover grayscale'
+      ></Image>
+    </div>
+  </div>
+}
+
+async function fetchViews() {
+  const res = await fetch('https://api.github.com/repos/evanosm/evanosm/traffic/views',
+    {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'Authorization': 'token ' + process.env.GITHUB_TOKEN
+      }
+    }
+  )
+  const data = await res.json();
+  console.log(data);
+
+  return data;
 }
