@@ -16,7 +16,7 @@ function FirstBloc() {
 
   return (
     <div
-      className='w-full h-fit md:w-1/2 md:h-full py-6 px-6 flex items-center justify-center'>
+      className='w-full h-fit md:w-1/2 md:h-full md:pr-6 py-6 flex items-center justify-center'>
       <div className='flex flex-col gap-6'>
         <div className='flex flex-col gap-0'>
           <h1 className='text-6xl md:text-7xl lg:text-8xl font-serif'>Evan <br />OSMONT</h1>
@@ -57,7 +57,7 @@ function FirstBloc() {
 }
 
 function SecondBloc() {
-  return <div className='w-full h-1/2 md:w-1/2 md:h-full px-3 flex items-center justify-start'>
+  return <div className='w-full h-1/2 md:w-1/2 md:h-full flex items-center justify-start'>
     <div className='w-full h-full rounded-t-full relative overflow-hidden'>
       <Image
         src='/evan.jpg'

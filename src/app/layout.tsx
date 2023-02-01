@@ -4,7 +4,7 @@ import '../styles/globals.css'
 
 import { Navbar } from './Navbar';
 import { AnimatePresence, motion } from 'framer-motion';
-import PageWrapper from './projects/PageWrapper';
+import PageWrapper from './PageWrapper';
 
 export default function RootLayout({
   children,

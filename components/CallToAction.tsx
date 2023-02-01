@@ -6,7 +6,7 @@ export default function CallToAction({ text, link, hasIcon = true }: { text: str
         return (
             <Link
                 href={link}
-                className="flex flex-row gap-1 items-center bg-dark text-light py-2 px-4"
+                className="flex flex-row gap-1 items-center bg-dark text-light py-2 px-3"
             >
                 {hasIcon && <ImArrowUpRight2 />}
                 <p className="font-bold text-md">{text}</p>
