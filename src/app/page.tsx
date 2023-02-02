@@ -25,10 +25,20 @@ function FirstBloc() {
         <div className='h-px w-full bg-dark'></div>
         <div className='flex flex-col gap-1'>
           <h2 className='font-bold font-sm'>Biography :</h2>
-          <p className='font-light'>👋 Hey, <br />
+          <p className='font-light'>Hey, <br />
             I’m a 20 years old Fullstack Developper currently working at Forinov. I also love to learn new skill on my free time !
           </p>
-          <div className='w-fit ml-auto'>
+          <div className='w-fit ml-auto flex flex-row gap-3 mt-3'>
+          <CallToAction
+              text="My projects"
+              link="/projects"
+              hasIcon
+            ></CallToAction>
+            <CallToAction
+              text="Read my CV"
+              link="https://read.cv/evanosm"
+              hasIcon
+            ></CallToAction>
             <CallToAction
               text="Contact me"
               link="/contact"

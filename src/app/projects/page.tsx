@@ -1,18 +1,51 @@
 import Image from 'next/image';
+import Link from 'next/link';
 export default async function page() {
     const projects = await fetchProjects();
     console.log(projects);
+
+    const devProjects = projects.filter((project: any) => project.type === "dev");
+    const designProjects = projects.filter((project: any) => project.type === "design");
+    const otherProjects = projects.filter((project: any) => project.type === "other");
     
     return (
         <div
-            className="w-full min-h-[calc(100vh-6rem)] flex flex-col">
+            className="w-full min-h-[calc(100vh-6rem)] flex flex-col gap-6 pb-6">
             <Section
                 title={"Developpement"}
             >
-                <Card
-                    title={"Project 1"}
-                    image={"https://picsum.photos/200/300"}
-                />
+                {devProjects.map((project: any) => (
+                    <Card
+                        key={project.id}
+                        title={project.name}
+                        image={project.image}
+                        id={project.id}
+                    ></Card>
+                ))}
+            </Section>
+            <Section
+                title={"Design"}
+            >
+                {designProjects.map((project: any) => (
+                    <Card
+                        key={project.id}
+                        title={project.name}
+                        image={project.image}
+                        id={project.id}
+                    ></Card>
+                ))}
+            </Section>
+            <Section
+                title={"Other"}
+            >
+                {otherProjects.map((project: any) => (
+                    <Card
+                        key={project.id}
+                        title={project.name}
+                        image={project.image}
+                        id={project.id}
+                    ></Card>
+                ))}
             </Section>
         </div>
     )
@@ -32,9 +65,11 @@ function Section({ title, children }: { title: string, children: React.ReactNode
     )
 }
 
-function Card({ title, image }: { title: string, image: string }) {
+function Card({ title, image, id }: { title: string, image: string, id: string }) {
     return (
-        <div className="w-56 h-80 bg-red-200 hover:bg-red-500 transition-all duration-300 relative">
+        <Link
+            href={`/projects/${id}`}
+            className="w-56 h-80 bg-red-200 hover:bg-red-500 transition-all duration-300 relative">
             <Image
                 src={image}
                 alt={title + " image"}
@@ -44,7 +79,7 @@ function Card({ title, image }: { title: string, image: string }) {
             <div className="w-full h-full bg-gradient-to-b from-transparent to-black bg-opacity-50 absolute top-0 left-0 flex items-end py-3 justify-center">
                 <h1 className="text-white font-bold">{title}</h1>
             </div>
-        </div>
+        </Link>
     )
 }
 
