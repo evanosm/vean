@@ -12,8 +12,6 @@ export default function Page() {
 
 function FirstBloc() {
 
-  const views = fetchViews();
-
   return (
     <div
       className='w-full h-fit md:w-1/2 md:h-full md:pr-6 py-6 flex items-center justify-center'>
@@ -78,19 +76,4 @@ function SecondBloc() {
       ></Image>
     </div>
   </div>
-}
-
-async function fetchViews() {
-  const res = await fetch('https://api.github.com/repos/evanosm/evanosm/traffic/views',
-    {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'Authorization': 'token ' + process.env.GITHUB_TOKEN
-      }
-    }
-  )
-  const data = await res.json();
-  console.log(data);
-
-  return data;
 }

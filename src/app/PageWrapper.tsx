@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const PageWrapper = ({ children }: any) => {
     return (
-        <AnimatePresence mode='wait'>
+        <AnimatePresence mode='popLayout'>
             <motion.div
                 key='page-wrapper'
                 initial={{ opacity: 1 }}

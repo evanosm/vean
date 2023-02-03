@@ -10,7 +10,7 @@ export default async function page() {
     
     return (
         <div
-            className="w-full min-h-[calc(100vh-6rem)] flex flex-col gap-6 pb-6">
+            className="w-full min-h-[calc(100vh-6rem)] flex flex-col gap-12 pb-6">
             <Section
                 title={"Developpement"}
             >
@@ -54,8 +54,8 @@ export default async function page() {
 function Section({ title, children }: { title: string, children: React.ReactNode }) {
     return (
         <div className="w-full">
-            <h1 className="text-xl font-bold mb-1 sticky">{title}</h1>
-            <div className="w-full h-px bg-black mb-3"></div>
+            <h1 className="text-xl font-bold mb-3 sticky">{title}</h1>
+            <div className="w-full h-px bg-black mb-6"></div>
             <div className="w-full overflow-scroll">
                 <div className="h-fit w-fit flex flex-row gap-3">
                     {children}
@@ -69,7 +69,7 @@ function Card({ title, image, id }: { title: string, image: string, id: string }
     return (
         <Link
             href={`/projects/${id}`}
-            className="w-56 h-80 bg-red-200 hover:bg-red-500 transition-all duration-300 relative">
+            className="w-56 h-80 bg-red-200 hover:bg-red-500 transition-all duration-300 relative hover:scale-95 hover:shadow-lg">
             <Image
                 src={image}
                 alt={title + " image"}
@@ -77,7 +77,7 @@ function Card({ title, image, id }: { title: string, image: string, id: string }
                 className='object-cover grayscale brightness-50'
             />
             <div className="w-full h-full bg-gradient-to-b from-transparent to-black bg-opacity-50 absolute top-0 left-0 flex items-end py-3 justify-center">
-                <h1 className="text-white font-bold">{title}</h1>
+                <h1 className="text-light font-bold">{title}</h1>
             </div>
         </Link>
     )

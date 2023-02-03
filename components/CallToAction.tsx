@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { ImArrowUpRight2 } from "react-icons/im"
 
@@ -6,10 +8,10 @@ export default function CallToAction({ text, link, hasIcon = true }: { text: str
         return (
             <Link
                 href={link}
-                className="flex flex-row gap-1 items-center bg-dark text-light py-3 px-3"
+                className="flex flex-row gap-1 items-center bg-dark text-light py-3 px-3 text-xs"
             >
                 {hasIcon && <ImArrowUpRight2 />}
-                <p className="font-bold text-md">{text}</p>
+                <span className="font-bold">{text}</span>
             </Link>
         )
     } else {
