@@ -9,13 +9,23 @@
     content: '';
     position: absolute;
     bottom: 0;
-    width: 0;
-    height: 4px;
-    background: rgb(249 250 251);
-    transition: width .3s ease-in-out;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #141414;
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: transform .2s ease-in-out;
 }
 
 .nav-link:hover::after {
-    width: 100%;
-    transition: width .3s ease-in-out;
+    transform: scaleX(1);
+}
+
+.blob {
+    border-radius: 49% 51% 62% 38% / 74% 52% 48% 26%;
+}
+
+.blob2 {
+    border-radius: 52% 48% 33% 67% / 29% 44% 56% 71%;
 }

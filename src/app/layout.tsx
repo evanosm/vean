@@ -2,7 +2,7 @@
 
 import '../styles/globals.css'
 
-import { Navbar } from './Navbar';
+import Navbar from './Navbar';
 import { AnimatePresence, motion } from 'framer-motion';
 import PageWrapper from './PageWrapper';
 
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className='bg-dark'>
+    <html lang="fr" className='bg-light'>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -20,9 +20,9 @@ export default function RootLayout({
       <head />
       <body className='page bg-light'>
         <Navbar />
-          <PageWrapper>
-            {children}
-          </PageWrapper>
+        <PageWrapper>
+          {children}
+        </PageWrapper>
       </body>
     </html>
   )
