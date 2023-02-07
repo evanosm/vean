@@ -33,7 +33,7 @@ function FirstBloc(): JSX.Element {
         <div className='h-px w-full bg-dark'></div>
         <div className='flex flex-col gap-1'>
           <h2 className='font-bold font-sm'>Biography :</h2>
-          <p className='font-light'>Hey, <br />
+          <p className='font-light'>- Hey, <br />
             I’m a 20 years old Fullstack Developper currently working at Forinov. I also love to learn new skill on my free time !
           </p>
           <div className='w-full flex flex-row justify-between gap-3 mt-3'>
@@ -78,13 +78,13 @@ function SecondBloc() {
   return <div className='w-full h-1/3 md:w-1/2 md:h-full flex items-center justify-center'>
     <div className='absolute blob2 w-96 h-96 opacity-80 bg-black shadow-xl'></div>
     <div className='absolute blob w-[350px] h-[350px] border border-light bg-black'></div>
-    <div className='w-72 h-72 rounded-full relative overflow-hidden'>
+    <div className='w-72 h-72 rounded-full relative overflow-hidden border border-light'>
       <Image
         src='/evan.jpg'
         alt='Picture of myself'
         fill
         priority
-        className='object-cover grayscale'
+        className='object-cover grayscale '
       ></Image>
     </div>
   </div>

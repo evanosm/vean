@@ -18,7 +18,7 @@ export default function Navbar(): JSX.Element {
         }
     }, [])
 
-    return (<nav className="h-24 w-full fixed flex flex-col gap-0 bg-light bg-opacity-70 backdrop-blur-sm z-50">
+    return (<nav className="h-24 w-full fixed flex flex-col gap-0 bg-light bg-opacity-90 backdrop-blur-sm z-50">
         <div className="transition-all duration-300  w-full h-16 flex items-center justify-center" style={
             scrollPosition > 100 ? { height: "0", opacity: 0 } : { height: "64px", opacity: 1 }
         }>
@@ -28,6 +28,7 @@ export default function Navbar(): JSX.Element {
                 width={50}
                 height={50}
                 className="transition-all duration-300"
+                priority
                 style={
                     scrollPosition > 100 ? { rotate: "45deg" } : { rotate: "0deg" }
                 }
